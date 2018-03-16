@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2018.2.15)  11 MAR 2018 21:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2018.2.15)  16 MAR 2018 15:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -488,50 +488,71 @@ File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <13> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 65.
+ [1
 
-<freq.png, id=19, 1222.5675pt x 1014.79124pt>
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 104.
+
+<freq.png, id=37, 1222.5675pt x 1014.79124pt>
 File: freq.png Graphic file (type png)
  <use freq.png>
-Package pdftex.def Info: freq.png used on input line 96.
+Package pdftex.def Info: freq.png used on input line 106.
 (pdftex.def)             Requested size: 427.90503pt x 355.18225pt.
 
-Overfull \hbox (1.11368pt too wide) in paragraph at lines 96--97
+Overfull \hbox (1.11368pt too wide) in paragraph at lines 106--107
  [][] 
  []
 
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 97.
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 107.
+
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 97.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 107.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 101.
+               Default added (so using `tbp') on input line 111.
 
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 128.
+
+<mwgxavg.png, id=39, 1311.90125pt x 780.9175pt>
+File: mwgxavg.png Graphic file (type png)
+ <use mwgxavg.png>
+Package pdftex.def Info: mwgxavg.png used on input line 130.
+(pdftex.def)             Requested size: 459.17232pt x 273.32521pt.
+
+Overfull \hbox (32.38097pt too wide) in paragraph at lines 130--131
+ [][] 
+ []
+
+LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <10> not available
+(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 131.
+[2 <./freq.png>]
 No file sbc-template.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 145.
-[1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2 <./freq.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 145.
-
-(./sbc-template.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 145.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 145.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 172.
+[3 <./mwgxavg.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 172.
+ (./sbc-template.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 172.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 172.
 Package rerunfilecheck Info: File `sbc-template.out' has not changed.
 (rerunfilecheck)             Checksum: 50C365010094DB9C56AF4B28BB35B730;141.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 145.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 172.
  ) 
 Here is how much of TeX's memory you used:
- 8157 strings out of 493013
- 118546 string characters out of 6135682
- 227043 words of memory out of 5000000
- 11559 multiletter control sequences out of 15000+600000
- 26697 words of font info for 65 fonts, out of 8000000 for 9000
+ 8169 strings out of 493013
+ 118680 string characters out of 6135682
+ 223101 words of memory out of 5000000
+ 11566 multiletter control sequences out of 15000+600000
+ 27212 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 30i,8n,31p,258b,316s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 30i,8n,31p,258b,320s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist
@@ -539,14 +560,15 @@ f-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist
 type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucr
-r8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/urw/times/utmri8a.pfb>
-Output written on sbc-template.pdf (2 pages, 144008 bytes).
+b8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/
+times/utmri8a.pfb>
+Output written on sbc-template.pdf (3 pages, 218572 bytes).
 PDF statistics:
- 86 PDF objects out of 1000 (max. 8388607)
- 68 compressed objects within 1 object stream
- 9 named destinations out of 1000 (max. 500000)
- 30 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 98 PDF objects out of 1000 (max. 8388607)
+ 76 compressed objects within 1 object stream
+ 11 named destinations out of 1000 (max. 500000)
+ 35 words of extra memory for PDF output out of 10000 (max. 10000000)
 

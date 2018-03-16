@@ -58,16 +58,17 @@ two matrices in single precision floating point (\texttt{SGEMM}).
 
 Althrough implementing a matrix-matrix multiplication seems trivial by its concept, it is 
 fairly difficult to provide an efficient code because of various reasons, such as cache usage. 
-The use of techniques such as block matrix multiplication can yield better results due 
-to a better cache usage, but a question that can be asked from this approach is what is the 
-block size that maximizes performance?
+The use of techniques such as block tiling can yield better results because it improves cache usage, 
+but it is important to select the size of the block that results in a best 
+overall performance. Such size can be determined empirically.
 
 \section{The database}
 
 We used the database "\textit{SGEMM GPU kernel performance Data Set}" provided by \textit{UCI machine 
 learning repository}\footnote{\url{https://archive.ics.uci.edu/ml/datasets/SGEMM+GPU+kernel+performance}}. 
-Briefly, it has timings of multiplication of two matrices in \textit{ms}, each 
+Briefly, it has timings of multiplication of two matrices measured in \textit{ms}, each 
 one of size $2048\times2048$, using a combination of $14$ parameters, totalizing $241601$ lines in the database. 
+All multiplications were computed using Graphic Processing Units (GPU).
 
 \section{Data analysis}
 
@@ -77,7 +78,7 @@ For creating a column with the average of four executions, we used the Orange's 
 Unfortunately, there is no average function implemented here, so we had to calculate such function by 
 the definition $\left(\frac{1}{n} \sum{x_i} \right)$. 
 
-Once we had the average column, we plotted the distribution, as illustrated by \ref{fig:freq}. 
+Once we had the average column, we plotted the distribution, as illustrated by Figure \ref{fig:freq}. 
 Notice that most of the averages concentrate under 200ms, and there are some data around 2400ms. 
 Such high timing can be caused by the parameters itself or be an outlier because there were other 
 programs running on the computer.
@@ -90,8 +91,17 @@ Maybe for pratical reasons, the showed results is enough to provide a setup for 
 implementation, but we can explore the provided data in order to create projections for perhaps
 even better timings.
 
+Using the scatterplot tool, we could plot how each parameter impacts the average of timing. 
+Analysing such graphics, we could determine that \texttt{MWG}, the tiling line dimension of the matrix, 
+is the parameter that mostly impacts 
+performance, and such impact is inverse proportional to the timing. So, for a better 
+performance, we must minimize the value of \texttt{MWG}. Figure \ref{fig:mwgxavg} illustrates the impact
+of this parameter.
 
-\begin{figure}[ht]
+Regarding other parameters, we could insert the graphics for each one, but we chose to not do so to 
+not extend this report unnecessarily.
+
+\begin{figure}[]
 \centering
 \includegraphics[scale=0.35]{freq.png}
 \caption{Distribution of the average of four samples per parameter.}
@@ -101,22 +111,39 @@ even better timings.
 \begin{table}[]
 \centering
 \caption{Combination of parameters that yielded the 5\# best results}
-\label{my-label}
+\label{}
 \resizebox{\columnwidth}{!}{%
 \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|}
 \hline
 MWG & NWG & KWG & MDIMC & NDIMC & MDIMA & NDIMB & KWI & VWM & VWN & STRM & STRN & SA & SB & Mean (ms) \\ \hline
-16  & 16  & 16  & 8     & 8     & 8     & 8     & 2   & 1   & 1   & 0    & 0    & 0  & 0  & 116,37    \\ \hline
-16  & 16  & 16  & 8     & 8     & 8     & 8     & 2   & 1   & 1   & 0    & 0    & 0  & 1  & 78,705    \\ \hline
-16  & 16  & 16  & 8     & 8     & 8     & 8     & 2   & 1   & 1   & 0    & 0    & 1  & 0  & 80,565    \\ \hline
-16  & 16  & 16  & 8     & 8     & 8     & 8     & 2   & 1   & 1   & 0    & 0    & 1  & 1  & 86,6375   \\ \hline
-16  & 16  & 16  & 8     & 8     & 8     & 8     & 2   & 1   & 1   & 0    & 1    & 0  & 0  & 118,6625  \\ \hline
+128 & 128 & 16  & 16    & 32    & 32    & 32    & 8   & 2   & 4   & 1    & 0    & 1  & 1  & 13.3175   \\ \hline
+128 & 128 & 16  & 16    & 32    & 32    & 32    & 8   & 2   & 4   & 1    & 1    & 1  & 1  & 13.42     \\ \hline
+128 & 128 & 16  & 16    & 32    & 32    & 32    & 2   & 2   & 2   & 1    & 1    & 1  & 1  & 13.74     \\ \hline
+128 & 128 & 16  & 16    & 32    & 32    & 32    & 8   & 2   & 2   & 1    & 1    & 1  & 1  & 14.4475   \\ \hline
+128 & 64  & 16  & 16    & 16    & 16    & 32    & 2   & 2   & 2   & 1    & 0    & 1  & 1  & 14.6325   \\ \hline
 \end{tabular}%
 }
 \end{table}
 
+\begin{figure}[]
+\centering
+\includegraphics[scale=0.35]{mwgxavg.png}
+\caption{Plot of \texttt{MWG} versus Timing Average.}
+\label{fig:mwgxavg}
+\end{figure}
+
 \section{Conclusions}
 
+Analysing the information in the database in order to extract how the parameters impact 
+the overall performance of the routine can aid the development of increasingly efficient 
+numerical libraries, and such analysis was made possible by Orange in a visually intuitivelly 
+manner. There was no need to write extensive code to prepare the data for being processed, 
+nor to plot graphics.
+
+On the other hand, Orange is not a fairly efficient tool performance-wise. For the database 
+selected, it used around 12Gb of memory just for loading it, and every step took very long 
+to compute and display any result. The use of more efficient data structures and parallel 
+computing may address these issues. 
 
 %The current implemented code have limitations. First, there is no logic to construct both $H$ and $G$ by blocks to create several 
 %GPU kernels. Second, there is also no logic to compute both $\texttt{Ghmatecd\_Nonsingd}$ and $\texttt{Ghmatecd\_Sing\_de}$ in 
